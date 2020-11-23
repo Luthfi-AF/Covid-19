@@ -1,66 +1,95 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+import 'package:covid19/Daftar.dart';
+
+void main () => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+        title: 'Login',
+        home: Login(),
     );
   }
 }
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  Widget _buildContainer() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        SizedBox(
-          child: Container(
-            height: 75,
-            width: 350,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
+class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height * 0.7,
-              width: MediaQuery.of(context).size.width,
-              child: Container(
-                decoration: BoxDecoration(
-                  // color: Colors.blue,
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: const Radius.circular(70),
-                      bottomRight: const Radius.circular(70)),
+    return Scaffold(
+        body: Container(
+            padding: EdgeInsets.all(25),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                    TextField(
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                            hintText: 'Username',
+                        ),
+                    ),
+                    SizedBox(
+                        height: 25,
+                    ),
+                    TextField(
+                        style: TextStyle(),
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                            hintText: 'Password',
+                        ),
+                    ),
+                    SizedBox(
+                        height: 25,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                            RaisedButton(
+                                child: Text(
+                                    'Login',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                        ),
+                                    ),
+                                    color: Colors.lightBlue,
+                                    onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => Daftar()),
+                                        );
+                                    },
+                                ),
+                                RaisedButton(
+                                    child: Text(
+                                        'Daftar',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                        ),
+                                    ),
+                                    color: Colors.lightBlue,
+                                    onPressed: () {},
+                                ),
+                            ],
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                                Text(
+                                    'Lupa Password?',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.lightBlue,
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ],
                 ),
-              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                _buildContainer(),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
-  }
+        );
+    }
 }
