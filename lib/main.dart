@@ -1,59 +1,65 @@
-import 'dart:async';
-
-import 'package:covid19/Login.dart';
+import 'package:covid19/FAQ.dart';
+import 'package:covid19/Homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  
+    int _selectedItemIndex = 1;
+
+    final List page = [
+      null,
+      Homepage(),
+      FAQ(),
+    ];
+    
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(title: 'Splash Screen'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    super.initState();
-
-    Timer(
-        Duration(seconds: 3),
-        () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Login())));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.lightBlue,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              'assets/Logo.png',
-              height: 200,
+      home: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.blue,
+          selectedIconTheme: IconThemeData(color: Colors.blue),
+          currentIndex: _selectedItemIndex,
+          type: BottomNavigationBarType.fixed,
+          onTap: (int index) {
+            setState(() {
+              _selectedItemIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              // ignore: deprecated_member_use
+              title: Text("Profile"),
+              icon: Icon(Icons.person),
             ),
-            SizedBox(
-              height: 50,
+            BottomNavigationBarItem(
+              // ignore: deprecated_member_use
+              title: Text("Beranda"),
+              icon: Icon(Icons.home),
             ),
-            SpinKitRipple(color: Colors.white),
+            BottomNavigationBarItem(
+              // ignore: deprecated_member_use
+              title: Text("FAQ"),
+              icon: Icon(Icons.help_outlined),
+            ),
           ],
-        ));
+        ),
+        body: page[_selectedItemIndex],
+      ),
+    );
   }
 }
