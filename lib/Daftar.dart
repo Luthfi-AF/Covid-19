@@ -24,7 +24,8 @@ class Daftar extends StatelessWidget {
                     TextField(
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: 'Nama',
+                            labelText: "Nama",
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                     ),
                     SizedBox(
@@ -33,7 +34,8 @@ class Daftar extends StatelessWidget {
                     TextField(
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: 'Username',
+                            labelText: "Username",
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                     ),
                     SizedBox(
@@ -42,7 +44,8 @@ class Daftar extends StatelessWidget {
                     TextField(
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: 'Password',
+                            labelText: "Password",
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                     ),
                     SizedBox(
@@ -56,6 +59,7 @@ class Daftar extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                 ),
                             ),
+                            shape: StadiumBorder(),
                             color: Colors.lightBlue,
                             onPressed: () {},
                     ),

@@ -26,26 +26,40 @@ class Login extends StatelessWidget {
                     TextField(
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: 'Username',
+                            labelText: "Username",
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                     ),
                     SizedBox(
                         height: 25,
                     ),
                     TextField(
-                        style: TextStyle(),
+                        obscureText: true,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: 'Password',
+                            labelText: "Password",
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                     ),
                     SizedBox(
                         height: 25,
                     ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                            RaisedButton(
+                     Align(
+                         alignment: Alignment.centerRight,
+                         child: Container(
+                             margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
+                             child: Text(
+                                 "FORGOT PASSWORD?",
+                                 style: TextStyle(
+                                     color: Color(0xFF03A9F4),
+                                 ),
+                             ),
+                         ),
+                     ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                                RaisedButton(
                                 child: Text(
                                     'Login',
                                         style: TextStyle(
@@ -53,13 +67,9 @@ class Login extends StatelessWidget {
                                             fontWeight: FontWeight.bold,
                                         ),
                                     ),
+                                    shape: StadiumBorder(),
                                     color: Colors.lightBlue,
-                                    onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (context) => Daftar()),
-                                        );
-                                    },
+                                    onPressed: () {},
                                 ),
                                 RaisedButton(
                                     child: Text(
@@ -69,21 +79,14 @@ class Login extends StatelessWidget {
                                             fontWeight: FontWeight.bold,
                                         ),
                                     ),
+                                    shape: StadiumBorder(),
                                     color: Colors.lightBlue,
-                                    onPressed: () {},
-                                ),
-                            ],
-                        ),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                                Text(
-                                    'Lupa Password?',
-                                    style: TextStyle(
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.lightBlue,
-                                    ),
+                                    onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => Daftar()),
+                                        );
+                                    },
                                 ),
                             ],
                         ),

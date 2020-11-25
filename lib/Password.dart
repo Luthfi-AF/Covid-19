@@ -54,6 +54,7 @@ class Password extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                 ),
                             ),
+                            shape: StadiumBorder(),
                             color: Colors.lightBlue,
                             onPressed: () {},
                     ),
