@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/rendering.dart';
-// import 'package:gradient_widgets/gradient_widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -35,35 +35,35 @@ class Homepage extends StatelessWidget {
                         alignment: Alignment(-0.95, 0.90),
                         child: Text(
                           'Update Terkini',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             fontSize: 18,
                           ),
                         ),
                       ),
                       Card(
-                        elevation: 2,
+                        elevation: 4,
                         child: SizedBox(
                           height: 100,
-                          width: 370,
+                          width: 380,
                           child: DataTable(
                             columns: [
                               DataColumn(
                                   label: Text(
                                 'Total Kasus',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                   backgroundColor: Colors.red[300],
                                 ),
                               )),
                               DataColumn(
                                   label: Text(
                                 'Sembuh',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     backgroundColor: Colors.green[300]),
                               )),
                               DataColumn(
                                   label: Text(
                                 'Meninggal',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     backgroundColor: Colors.grey[300]),
                               )),
                             ],
@@ -81,10 +81,26 @@ class Homepage extends StatelessWidget {
                           alignment: Alignment(-0.90, 0.30),
                           child: Text(
                             'Pusat Layanan dan Informasi',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 17,
                             ),
                           )),
+                      // Align(
+                      //     alignment: Alignment(-0.90, 0.00),
+                      //     child: Card(
+                      //       child: InkWell(
+                      //         onTap: () {},
+                      //         splashColor: Colors.blue,
+                      //         child: Center(
+                      //           child: Column(
+                      //             children: <Widget>[
+                      //               Image.asset('assets/tanya-jawab.png',
+                      //                   fit: BoxFit.fill),
+                      //             ],
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     )),
                     ],
                   ),
                 ),
@@ -102,7 +118,7 @@ class Homepage extends StatelessWidget {
                 enableInfiniteScroll: true,
                 reverse: false,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
+                autoPlayInterval: Duration(seconds: 5),
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
                 autoPlayCurve: Curves.fastLinearToSlowEaseIn,
                 enlargeCenterPage: true,
@@ -113,7 +129,7 @@ class Homepage extends StatelessWidget {
                     decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                   image: DecorationImage(
-                    image: AssetImage('assets/news1.png'),
+                    image: AssetImage('assets/masker.jpg'),
                     fit: BoxFit.cover,
                   ),
                 )),
@@ -121,16 +137,8 @@ class Homepage extends StatelessWidget {
                     decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                   image: DecorationImage(
-                    image: AssetImage('assets/news1.png'),
-                    fit: BoxFit.cover,
-                  ),
-                )),
-                Container(
-                    decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  image: DecorationImage(
-                    image: AssetImage('assets/news1.png'),
-                    fit: BoxFit.cover,
+                    image: AssetImage('assets/cegah.jpg'),
+                    fit: BoxFit.fill,
                   ),
                 )),
               ],
