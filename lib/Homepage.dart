@@ -1,3 +1,4 @@
+import 'package:covid19/tanya_jawab.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/rendering.dart';
@@ -127,7 +128,12 @@ class Homepage extends StatelessWidget {
                             child: Card(
                               elevation: 5,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return TanyaJawab();
+                                  }));
+                                },
                                 splashColor: Colors.grey[100],
                                 child: Center(
                                   child: Column(
@@ -157,7 +163,7 @@ class Homepage extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Image.asset(
-                                        'assets/tanya-jawab.png',
+                                        'assets/datawilayah.png',
                                         width: 50.0,
                                         height: 50.0,
                                       ),
@@ -180,7 +186,7 @@ class Homepage extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Image.asset(
-                                        'assets/tanya-jawab.png',
+                                        'assets/rujukan.png',
                                         width: 50.0,
                                         height: 50.0,
                                       ),
@@ -196,8 +202,8 @@ class Homepage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Text('Tanya Jawab'),
-                          Text('Tanya Jawab'),
-                          Text('Tanya Jawab')
+                          Text('Data Wilayah'),
+                          Text('Daftar Rujukan')
                         ],
                       ),
                       Row(
@@ -216,53 +222,7 @@ class Homepage extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Image.asset(
-                                        'assets/tanya-jawab.png',
-                                        width: 50.0,
-                                        height: 50.0,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 90,
-                            width: 80,
-                            child: Card(
-                              elevation: 5,
-                              child: InkWell(
-                                onTap: () {},
-                                splashColor: Colors.grey[100],
-                                child: Center(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Image.asset(
-                                        'assets/tanya-jawab.png',
-                                        width: 50.0,
-                                        height: 50.0,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 90,
-                            width: 80,
-                            child: Card(
-                              elevation: 5,
-                              child: InkWell(
-                                onTap: () {},
-                                splashColor: Colors.grey[100],
-                                child: Center(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Image.asset(
-                                        'assets/tanya-jawab.png',
+                                        'assets/edukasi.png',
                                         width: 50.0,
                                         height: 50.0,
                                       ),
@@ -277,9 +237,7 @@ class Homepage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('Tanya Jawab'),
-                          Text('Tanya Jawab'),
-                          Text('Tanya Jawab')
+                          Text('Edukasi'),
                         ],
                       ),
                     ],
