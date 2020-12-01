@@ -32,14 +32,29 @@ class Homepage extends StatelessWidget {
                   child: Column(
                     children: [
                       Align(
-                        alignment: Alignment(-0.95, 0.90),
-                        child: Text(
-                          'Update Terkini',
-                          style: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
+                          alignment: Alignment(-0.92, 0.80),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.topLeft,
+                                    stops: [
+                                  0.1,
+                                  0.5,
+                                  0.7,
+                                  0.9
+                                ],
+                                    colors: [
+                                  Colors.white10,
+                                  Colors.grey[200],
+                                  Colors.grey[300],
+                                  Colors.grey[400]
+                                ])),
+                            child: Text(
+                              'Update Terkini ',
+                              style: GoogleFonts.poppins(fontSize: 17),
+                            ),
+                          )),
                       Card(
                         elevation: 4,
                         child: SizedBox(
@@ -68,39 +83,205 @@ class Homepage extends StatelessWidget {
                               )),
                             ],
                             rows: [
-                              DataRow(cells: [
-                                DataCell(Text('111.000')),
-                                DataCell(Text('60.000')),
-                                DataCell(Text('30.000')),
-                              ])
+                              DataRow(
+                                cells: [
+                                  DataCell(Text('111.000')),
+                                  DataCell(Text('60.000')),
+                                  DataCell(Text('30.000')),
+                                ],
+                              )
                             ],
                           ),
                         ),
                       ),
                       Align(
-                          alignment: Alignment(-0.90, 0.30),
-                          child: Text(
-                            'Pusat Layanan dan Informasi',
-                            style: GoogleFonts.poppins(
-                              fontSize: 17,
+                          alignment: Alignment(-0.90, 0.20),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.topLeft,
+                                    stops: [
+                                  0.1,
+                                  0.5,
+                                  0.7,
+                                  0.9
+                                ],
+                                    colors: [
+                                  Colors.white10,
+                                  Colors.grey[200],
+                                  Colors.grey[300],
+                                  Colors.grey[400]
+                                ])),
+                            child: Text(
+                              'Pusat Layanan dan Informasi',
+                              style: GoogleFonts.poppins(fontSize: 17),
                             ),
                           )),
-                      // Align(
-                      //     alignment: Alignment(-0.90, 0.00),
-                      //     child: Card(
-                      //       child: InkWell(
-                      //         onTap: () {},
-                      //         splashColor: Colors.blue,
-                      //         child: Center(
-                      //           child: Column(
-                      //             children: <Widget>[
-                      //               Image.asset('assets/tanya-jawab.png',
-                      //                   fit: BoxFit.fill),
-                      //             ],
-                      //           ),
-                      //         ),
-                      //       ),
-                      //     )),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 90,
+                            width: 80,
+                            child: Card(
+                              elevation: 5,
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.grey[100],
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/tanya-jawab.png',
+                                        width: 50.0,
+                                        height: 50.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 90,
+                            width: 80,
+                            child: Card(
+                              elevation: 5,
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.grey[100],
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/tanya-jawab.png',
+                                        width: 50.0,
+                                        height: 50.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 90,
+                            width: 80,
+                            child: Card(
+                              elevation: 5,
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.grey[100],
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/tanya-jawab.png',
+                                        width: 50.0,
+                                        height: 50.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Text('Tanya Jawab'),
+                          Text('Tanya Jawab'),
+                          Text('Tanya Jawab')
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 90,
+                            width: 80,
+                            child: Card(
+                              elevation: 5,
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.grey[100],
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/tanya-jawab.png',
+                                        width: 50.0,
+                                        height: 50.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 90,
+                            width: 80,
+                            child: Card(
+                              elevation: 5,
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.grey[100],
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/tanya-jawab.png',
+                                        width: 50.0,
+                                        height: 50.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 90,
+                            width: 80,
+                            child: Card(
+                              elevation: 5,
+                              child: InkWell(
+                                onTap: () {},
+                                splashColor: Colors.grey[100],
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Image.asset(
+                                        'assets/tanya-jawab.png',
+                                        width: 50.0,
+                                        height: 50.0,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Text('Tanya Jawab'),
+                          Text('Tanya Jawab'),
+                          Text('Tanya Jawab')
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -108,7 +289,7 @@ class Homepage extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 40, 0, 20),
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
             child: CarouselSlider(
               options: CarouselOptions(
                 height: 200,
