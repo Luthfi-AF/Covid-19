@@ -17,47 +17,63 @@ class Password extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            padding: EdgeInsets.all(25),
+            padding: EdgeInsets.all(20),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                    Text(
+                    Container(
+                        margin: EdgeInsets.only(bottom: 20),
+                        child: Text(
                         'Reset Password',
                         style:  TextStyle(
                             fontSize: 25.0,
                             fontWeight: FontWeight.bold,
                         ),
                     ),
+                    ),
                     TextField(
+                        autofocus: false,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: 'Password Baru',
+                            labelText: 'Password Baru',
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                     ),
                     SizedBox(
                         height: 25,
                     ),
                     TextField(
+                        autofocus: false,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            hintText: 'Konfirmasi',
+                            labelText: 'Konfirmasi',
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                            
                         ),
                     ),
                     SizedBox(
                         height: 25,
                     ),
-                    RaisedButton(
-                            child: Text(
-                                'Kirim',
-                                style: TextStyle(
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
+                    Align(
+                         alignment: Alignment.center,
+                         child: Container(
+                             margin: EdgeInsets.only(bottom: 10),
+                             width:400,
+                             height: 35,
+                             child: RaisedButton(
+                                child: Text(
+                                    'Kirim',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                        ),
+                                    ),
+                                    shape: StadiumBorder(),
+                                    color: Colors.lightBlue,
+                                    onPressed: () {},
                                 ),
                             ),
-                            shape: StadiumBorder(),
-                            color: Colors.lightBlue,
-                            onPressed: () {},
-                    ),
+                         ),
                 ],
             ),
         ),

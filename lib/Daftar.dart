@@ -17,11 +17,12 @@ class Daftar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            padding: EdgeInsets.all(25),
+            padding: EdgeInsets.all(20),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                     TextField(
+                        autofocus: false,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             labelText: "Nama",
@@ -32,6 +33,7 @@ class Daftar extends StatelessWidget {
                         height: 25,
                     ),
                     TextField(
+                        autofocus: false,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             labelText: "Username",
@@ -42,6 +44,8 @@ class Daftar extends StatelessWidget {
                         height: 25,
                     ),
                     TextField(
+                        autofocus: false,
+                        obscureText: true,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             labelText: "Password",
@@ -51,17 +55,25 @@ class Daftar extends StatelessWidget {
                     SizedBox(
                         height: 25,
                     ),
-                    RaisedButton(
-                            child: Text(
-                                'Daftar',
-                                style: TextStyle(
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
-                                ),
+                     Align(
+                         alignment: Alignment.center,
+                         child: Container(
+                             margin: EdgeInsets.only(bottom: 10),
+                             width:400,
+                             height: 35,
+                             child: RaisedButton(
+                                child: Text(
+                                    'Daftar',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                        ),
+                                    ),
+                                    shape: StadiumBorder(),
+                                    color: Colors.lightBlue,
+                                    onPressed: () {},
                             ),
-                            shape: StadiumBorder(),
-                            color: Colors.lightBlue,
-                            onPressed: () {},
+                        ),
                     ),
                 ],
             ),
