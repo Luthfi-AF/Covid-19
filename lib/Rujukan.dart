@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,9 +14,7 @@ class Rujukan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            leading: Icon(Icons.arrow_back_rounded,color:Colors.white,size: 30.0),
-        ),
+        appBar: AppBar(),
         body: Container(
             margin: EdgeInsets.all(20),
             child: ListView(

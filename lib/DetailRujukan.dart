@@ -53,13 +53,15 @@ class DetailRujukan extends StatelessWidget {
                     ),
                     Row(
                         children: <Widget>[
-                            Text(
+                            Container(
+                                margin: EdgeInsets.only(bottom: 5),
+                            child: Text(
                                 "Informasi Rs A",
                                 style: TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
                                 ),
-                            ),
+                            ),),
                         ],
                     ),
                     Row(

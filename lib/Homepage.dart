@@ -1,4 +1,7 @@
 import 'package:covid19/tanya_jawab.dart';
+import 'package:covid19/Rujukan.dart';
+import 'package:covid19/Edukasi.dart';
+import 'package:covid19/DataWilayah.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/rendering.dart';
@@ -156,7 +159,12 @@ class Homepage extends StatelessWidget {
                             child: Card(
                               elevation: 5,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                    Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return DataWilayah();
+                                  }));
+                                },
                                 splashColor: Colors.grey[100],
                                 child: Center(
                                   child: Column(
@@ -179,7 +187,12 @@ class Homepage extends StatelessWidget {
                             child: Card(
                               elevation: 5,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                    Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return Rujukan();
+                                  }));
+                                },
                                 splashColor: Colors.grey[100],
                                 child: Center(
                                   child: Column(
@@ -215,7 +228,12 @@ class Homepage extends StatelessWidget {
                             child: Card(
                               elevation: 5,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                    Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return Edukasi();
+                                  }));
+                                },
                                 splashColor: Colors.grey[100],
                                 child: Center(
                                   child: Column(
@@ -280,6 +298,14 @@ class Homepage extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 )),
+                Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        image: DecorationImage(
+                            image: AssetImage('assets/jagajarak.jpg'),
+                            fit: BoxFit.fill,
+                        ),
+                    )),
               ],
             ),
           ),
