@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/Daftar.dart';
+import 'package:covid19/material.dart';
 
 void main () => runApp(MyApp());
 
@@ -107,7 +107,7 @@ class Login extends StatelessWidget {
                                     ),
                                     shape: StadiumBorder(),
                                     color: Colors.lightBlue,
-                                    onPressed: () {
+                                     onPressed: () {
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(builder: (context) => Daftar()),
