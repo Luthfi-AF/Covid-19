@@ -1,8 +1,13 @@
-import 'package:covid19/tanya_jawab.dart';
+import 'package:covid19/DataWilayah.dart';
+import 'package:covid19/DetailRujukan.dart';
+import 'package:covid19/edukasi.dart';
+import 'package:covid19/TanyaJawab.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:http/http.dart' as http;
 
 class Homepage extends StatelessWidget {
   @override
@@ -28,12 +33,11 @@ class Homepage extends StatelessWidget {
               ),
               Expanded(
                 flex: 3,
-                child: Container(
-                  color: Colors.white10,
+                child: SingleChildScrollView(
                   child: Column(
                     children: [
                       Align(
-                          alignment: Alignment(-0.92, 0.80),
+                          alignment: Alignment(-0.95, 0.80),
                           child: Container(
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -61,37 +65,39 @@ class Homepage extends StatelessWidget {
                         child: SizedBox(
                           height: 100,
                           width: 380,
-                          child: DataTable(
-                            columns: [
-                              DataColumn(
-                                  label: Text(
-                                'Total Kasus',
-                                style: GoogleFonts.poppins(
-                                  backgroundColor: Colors.red[300],
-                                ),
-                              )),
-                              DataColumn(
-                                  label: Text(
-                                'Sembuh',
-                                style: GoogleFonts.poppins(
-                                    backgroundColor: Colors.green[300]),
-                              )),
-                              DataColumn(
-                                  label: Text(
-                                'Meninggal',
-                                style: GoogleFonts.poppins(
-                                    backgroundColor: Colors.grey[300]),
-                              )),
-                            ],
-                            rows: [
-                              DataRow(
-                                cells: [
-                                  DataCell(Text('111.000')),
-                                  DataCell(Text('60.000')),
-                                  DataCell(Text('30.000')),
-                                ],
-                              )
-                            ],
+                          child: Center(
+                            child: DataTable(
+                              columns: [
+                                DataColumn(
+                                    label: Text(
+                                  'Total Kasus',
+                                  style: GoogleFonts.poppins(
+                                    backgroundColor: Colors.red[300],
+                                  ),
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  'Sembuh',
+                                  style: GoogleFonts.poppins(
+                                      backgroundColor: Colors.green[300]),
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  'Meninggal',
+                                  style: GoogleFonts.poppins(
+                                      backgroundColor: Colors.grey[300]),
+                                )),
+                              ],
+                              rows: [
+                                DataRow(
+                                  cells: [
+                                    DataCell(Center(child: Text('111.000'))),
+                                    DataCell(Center(child: Text('60.000'))),
+                                    DataCell(Center(child: Text('30.000'))),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -156,7 +162,12 @@ class Homepage extends StatelessWidget {
                             child: Card(
                               elevation: 5,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return DataWilayah();
+                                  }));
+                                },
                                 splashColor: Colors.grey[100],
                                 child: Center(
                                   child: Column(
@@ -179,7 +190,12 @@ class Homepage extends StatelessWidget {
                             child: Card(
                               elevation: 5,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return DetailRujukan();
+                                  }));
+                                },
                                 splashColor: Colors.grey[100],
                                 child: Center(
                                   child: Column(
@@ -215,7 +231,12 @@ class Homepage extends StatelessWidget {
                             child: Card(
                               elevation: 5,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return Edukasi();
+                                  }));
+                                },
                                 splashColor: Colors.grey[100],
                                 child: Center(
                                   child: Column(
@@ -257,7 +278,7 @@ class Homepage extends StatelessWidget {
                 enableInfiniteScroll: true,
                 reverse: false,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 5),
+                autoPlayInterval: Duration(seconds: 3),
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
                 autoPlayCurve: Curves.fastLinearToSlowEaseIn,
                 enlargeCenterPage: true,

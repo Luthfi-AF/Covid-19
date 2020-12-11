@@ -1,5 +1,6 @@
 import 'package:covid19/FAQ.dart';
 import 'package:covid19/Homepage.dart';
+import 'package:covid19/Login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,18 +13,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  
-    int _selectedItemIndex = 1;
+  int _selectedItemIndex = 1;
 
-    final List page = [
-      null,
-      Homepage(),
-      FAQ(),
-    ];
-    
+  final List page = [
+    Login(),
+    Homepage(),
+    FAQ(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
