@@ -1,15 +1,29 @@
 import 'package:covid19/DataWilayah.dart';
-import 'package:covid19/DetailRujukan.dart';
-import 'package:covid19/edukasi.dart';
+import 'package:covid19/Edukasi.dart';
+import 'package:covid19/Network.dart';
+import 'package:covid19/Rujukan.dart';
 import 'package:covid19/TanyaJawab.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:http/http.dart' as http;
+import 'dart:async';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  Future data;
+
+  @override
+  void initState() {
+    super.initState();
+    data = getData();
+    // data.then((value) => {print(value[3]["attributes"])});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +47,7 @@ class Homepage extends StatelessWidget {
               ),
               Expanded(
                 flex: 3,
-                child: SingleChildScrollView(
+                child: Container(
                   child: Column(
                     children: [
                       Align(
@@ -60,47 +74,66 @@ class Homepage extends StatelessWidget {
                               style: GoogleFonts.poppins(fontSize: 17),
                             ),
                           )),
-                      Card(
-                        elevation: 4,
-                        child: SizedBox(
-                          height: 100,
-                          width: 380,
-                          child: Center(
-                            child: DataTable(
-                              columns: [
-                                DataColumn(
-                                    label: Text(
-                                  'Total Kasus',
-                                  style: GoogleFonts.poppins(
-                                    backgroundColor: Colors.red[300],
+                      FutureBuilder(
+                          future: data,
+                          builder: (context, AsyncSnapshot snapshot) {
+                            if (snapshot.hasData) {
+                              return Container(
+                                  child: Card(
+                                elevation: 4,
+                                child: SizedBox(
+                                  height: 100,
+                                  width: 380,
+                                  child: DataTable(
+                                    columns: [
+                                      DataColumn(
+                                          label: Text(
+                                        'Total Kasus',
+                                        style: GoogleFonts.poppins(
+                                          backgroundColor: Colors.red[300],
+                                        ),
+                                      )),
+                                      DataColumn(
+                                          label: Text(
+                                        'Sembuh',
+                                        style: GoogleFonts.poppins(
+                                            backgroundColor: Colors.green[300]),
+                                      )),
+                                      DataColumn(
+                                          label: Text(
+                                        'Meninggal',
+                                        style: GoogleFonts.poppins(
+                                            backgroundColor: Colors.grey[300]),
+                                      )),
+                                    ],
+                                    rows: [
+                                      DataRow(
+                                        cells: [
+                                          DataCell(Center(
+                                              child: Text(
+                                                  "${snapshot.data[3]["attributes"]["Kasus_Posi"]}",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 15)))),
+                                          DataCell(Center(
+                                              child: Text(
+                                                  "${snapshot.data[3]["attributes"]["Kasus_Semb"]}",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 15)))),
+                                          DataCell(Center(
+                                              child: Text(
+                                                  "${snapshot.data[3]["attributes"]["Kasus_Meni"]}",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 15)))),
+                                        ],
+                                      )
+                                    ],
                                   ),
-                                )),
-                                DataColumn(
-                                    label: Text(
-                                  'Sembuh',
-                                  style: GoogleFonts.poppins(
-                                      backgroundColor: Colors.green[300]),
-                                )),
-                                DataColumn(
-                                    label: Text(
-                                  'Meninggal',
-                                  style: GoogleFonts.poppins(
-                                      backgroundColor: Colors.grey[300]),
-                                )),
-                              ],
-                              rows: [
-                                DataRow(
-                                  cells: [
-                                    DataCell(Center(child: Text('111.000'))),
-                                    DataCell(Center(child: Text('60.000'))),
-                                    DataCell(Center(child: Text('30.000'))),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                                ),
+                              ));
+                            } else {
+                              return CircularProgressIndicator();
+                            }
+                          }),
                       Align(
                           alignment: Alignment(-0.90, 0.20),
                           child: Container(
@@ -193,7 +226,7 @@ class Homepage extends StatelessWidget {
                                 onTap: () {
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (context) {
-                                    return DetailRujukan();
+                                    return Rujukan();
                                   }));
                                 },
                                 splashColor: Colors.grey[100],
@@ -218,7 +251,9 @@ class Homepage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Text('Tanya Jawab'),
-                          Text('Data Wilayah'),
+                          Text(
+                            'Data Wilayah',
+                          ),
                           Text('Daftar Rujukan')
                         ],
                       ),
@@ -253,12 +288,20 @@ class Homepage extends StatelessWidget {
                               ),
                             ),
                           ),
+                          Container(
+                            width: 80,
+                          ),
+                          Container(
+                            width: 80,
+                          ),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Text('Edukasi'),
+                          Text('                  '),
+                          Text('                '),
                         ],
                       ),
                     ],
@@ -301,11 +344,26 @@ class Homepage extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 )),
+                Container(
+                    decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                  image: DecorationImage(
+                    image: AssetImage('assets/jagajarak.jpg'),
+                    fit: BoxFit.fill,
+                  ),
+                )),
               ],
             ),
           ),
         ],
       ),
     ));
+  }
+
+  Future getData() async {
+    Network network =
+        Network("https://api.kawalcorona.com/indonesia/provinsi/");
+
+    return network.fetchData();
   }
 }
