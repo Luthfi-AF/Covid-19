@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "data wilayah",
+        title: "Data Wilayah",
         home: DataWilayah(),
     );
   }
@@ -15,11 +17,26 @@ class DataWilayah extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        body: Center(
+        body: Container(
+            margin: EdgeInsets.all(20),
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                    Text("data Wilayah"),
+                    Text("Data Wilayah Covid 19",
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                    )),
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                            Text("Di Jawa Barat",
+                                style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                             )),
+                        ],
+                    ),
                 ],
             ),
         ),
