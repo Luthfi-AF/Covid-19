@@ -25,7 +25,7 @@ class Edukasi extends StatelessWidget {
                         width: 290,
                         height: 174,
                         child:  Image(
-                            image: AssetImage("assets/edukasi.jpg"),
+                            image: AssetImage("assets/bukuedukasi.jpg"),
                             fit: BoxFit.cover,
                         ),
                     ),
